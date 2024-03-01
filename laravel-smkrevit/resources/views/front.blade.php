@@ -15,10 +15,15 @@
                     <a class="navbar-brand" href="/"><img style="width: 300px;" src="{{asset('gambar/smkrevit.png')}}" alt="gambar.jpg"></a>
                     <ul class="navbar-nav">
                         <li class="nav-item me-2"><a href="#">Cart</a></li>
-                        <li class="nav-item me-2"><a href="{{url('register')}}">Register</a></li>
-                        <li class="nav-item me-2"><a href="#">Email</a></li>
-                        <li class="nav-item me-2"><a href="#">Login</a></li>
-                        <li class="nav-item me-2"><a href="#">Logout</a></li>
+                        @if (session() -> missing('idpelanggan'))
+                            <li class="nav-item me-2"><a href="{{url('register')}}">Register</a></li>
+                            <li class="nav-item"><a href="{{url('login')}}">Login</a></li>
+                        @endif
+
+                        @if (session() -> has('idpelanggan'))
+                            <li class="nav-item me-2">{{ session('idpelanggan')['email'] }}</li>
+                            <li class="nav-item"><a href="{{url('logout')}}">Logout</a></li>
+                        @endif
                     </ul>
                 </div>
             </nav>

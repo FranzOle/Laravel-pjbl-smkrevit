@@ -12,10 +12,10 @@
         <div class="mt-5">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img style="width: 300px;" src="{{asset('gambar/smkrevit.png')}}" alt="gambar.jpg"></a>
+                    <a class="navbar-brand" href="/"><img style="width: 300px;" src="{{asset('gambar/smkrevit.png')}}" alt="gambar.jpg"></a>
                     <ul class="navbar-nav">
                         <li class="nav-item me-2"><a href="#">Cart</a></li>
-                        <li class="nav-item me-2"><a href="#">Register</a></li>
+                        <li class="nav-item me-2"><a href="{{url('register')}}">Register</a></li>
                         <li class="nav-item me-2"><a href="#">Email</a></li>
                         <li class="nav-item me-2"><a href="#">Login</a></li>
                         <li class="nav-item me-2"><a href="#">Logout</a></li>
@@ -27,11 +27,11 @@
            <div class="col-2">
             <ul class="list-group">
                 @foreach ($kategoris as $kategori)
-                <li class="list-group-item">{{$kategori->kategori}}</li>
+                <li class="list-group-item"><a href="{{url('show/' . $kategori->idkategori)}}">{{$kategori->kategori}}</a></li>
                 @endforeach
             </ul>
            </div>
-           <div class="col-8">
+           <div class="col-10">
                 @yield('content')
            </div>
         </div>

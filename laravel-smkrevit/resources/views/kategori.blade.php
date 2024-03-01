@@ -13,8 +13,5 @@
             </div>
         </div>
     @endforeach
-    <div class="mt-3 justify-content-center d-flex">
-        {{$menus->links()}}
-    </div>
 </div>
 @endsection

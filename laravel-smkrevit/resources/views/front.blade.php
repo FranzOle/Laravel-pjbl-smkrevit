@@ -14,7 +14,18 @@
                 <div class="container-fluid">
                     <a class="navbar-brand" href="/"><img style="width: 300px;" src="{{asset('gambar/smkrevit.png')}}" alt="gambar.jpg"></a>
                     <ul class="navbar-nav">
-                        <li class="nav-item me-2"><a href="#">Cart</a></li>
+
+                        @if (session()->has('cart'))
+                        <li class="nav-item me-2"><a href="{{ url('cart')}}"> Cart (
+                            @php
+                                $count = count(session('cart'));
+                                echo $count;
+                            @endphp
+                        ) </a> </li>
+                    @else
+                        <li class="nav-item">Cart</li>
+                    @endif
+
                         @if (session() -> missing('idpelanggan'))
                             <li class="nav-item me-2"><a href="{{url('register')}}">Register</a></li>
                             <li class="nav-item"><a href="{{url('login')}}">Login</a></li>
@@ -40,8 +51,8 @@
                 @yield('content')
            </div>
         </div>
-        <div>
-            Footer
+        <div class="mt-5">
+            <p class="text-center">@socety.co 2024</p>
         </div>
     </div>
     <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}">

@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kategori;
-use App\Http\Requests\StoreKategoriRequest;
-use App\Http\Requests\UpdateKategoriRequest;
+use Illuminate\Http\Request;
 
-class KategoriController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +12,7 @@ class KategoriController extends Controller
     public function index()
     {
         //
-        return view('Backend.kategori.select');
+        return view('Backend.user.select');
     }
 
     /**
@@ -28,7 +26,7 @@ class KategoriController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreKategoriRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -36,7 +34,7 @@ class KategoriController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Kategori $kategori)
+    public function show(string $id)
     {
         //
     }
@@ -44,7 +42,7 @@ class KategoriController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kategori $kategori)
+    public function edit(string $id)
     {
         //
     }
@@ -52,7 +50,7 @@ class KategoriController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateKategoriRequest $request, Kategori $kategori)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -60,7 +58,7 @@ class KategoriController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kategori $kategori)
+    public function destroy(string $id)
     {
         //
     }

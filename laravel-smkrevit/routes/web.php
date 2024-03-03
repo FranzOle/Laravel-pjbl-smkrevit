@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\CartControlle;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
-
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\KategoriController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +41,22 @@ Route::get('batal',[CartController::class,'batal']);
 Route::get('tambah/{idmenu}',[CartController::class,'tambah']);
 Route::get('kurang/{idmenu}',[CartController::class,'kurang']);
 Route::get('checkout',[CartController::class,'checkout']);
+
+Route::get('admin',[AuthController::class,'index']);
+Route::get('admin/logout',[AuthController::class,'logout']);
+Route::post('admin/postlogin',[AuthController::class,'postlogin']);
+Route::get('admin/logout',[AuthController::class,'logout']);
+
+Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
+    Route::group(['Middleware' => ['CekLogin:admin']],function(){
+        Route::resource('user',UserController::class);
+    });
+
+    Route::group(['Middleware' => ['CekLogin:kasir']],function(){
+        Route::resource('order',OrderController::class);
+    });
+
+    Route::group(['Middleware' => ['CekLogin:manager']],function(){
+        Route::resource('kategori',KategoriController::class);
+    });
+});

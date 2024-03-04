@@ -12,7 +12,7 @@
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid">
                     <h2>Admin Page</h2>
-                    <ul class="navbar-nav gap-5 ">
+                    <ul class="navbar-nav gap-2 ">
                         <li class="nav-item">{{ Auth::user()->email }}</li>
                         <li class="nav-item">Level : {{ Auth::user()->level }}</li>
                         <li class="nav-item"><a href="{{ url('admin/logout') }}">Logout</a></li>
@@ -31,8 +31,8 @@
                         <li class="list-group-item"><a href="">Order Detail</a></li>
                     @endif
                     @if (Auth::user() -> level == 'manager')
-                        <li class="list-group-item"><a href="">Kategori</a></li>
-                        <li class="list-group-item"><a href="">Menu</a></li>
+                        <li class="list-group-item"><a href="{{ url('admin/kategori') }}">Kategori</a></li>
+                        <li class="list-group-item"><a href="{{ url('admin/menu') }}">Menu</a></li>
                         <li class="list-group-item"><a href="">Pelanggan</a></li>
                         <li class="list-group-item"><a href="">Order</a></li>
                         <li class="list-group-item"><a href="">Order Detail</a></li>
@@ -43,7 +43,7 @@
                 @yield('admincontent')
             </div>
         </div>
-        <div class="fixed-bottom mt-5">
+        <div class="mt-5">
             <p class="text-center">@society.co 2024</p>
         </div>
     </div>

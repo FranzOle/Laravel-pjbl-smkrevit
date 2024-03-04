@@ -23,7 +23,7 @@
                             @endphp
                         ) </a> </li>
                     @else
-                        <li class="nav-item">Cart</li>
+                        <li class="nav-item me-2">Cart</li>
                     @endif
 
                         @if (session() -> missing('idpelanggan'))

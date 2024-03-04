@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('pelanggans', function (Blueprint $table) {
             //
-            $table->integer('aktif');
+            $table->integer('aktif')->default(1);
         });
     }
 

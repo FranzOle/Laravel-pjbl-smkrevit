@@ -15,6 +15,7 @@ class Pelanggan extends Model
         'email',
         'password',
         'alamat',
-        'telepon'
+        'telepon',
+        'aktif',
     ];
 }

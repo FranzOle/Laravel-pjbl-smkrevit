@@ -52,7 +52,8 @@ class FrontController extends Controller
             'alamat' => $data['alamat'],
             'telepon' => $data['telepon'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password'])
+            'password' => Hash::make($data['password']),
+            'aktif' => 1,
         ]);
 
         return redirect('/');

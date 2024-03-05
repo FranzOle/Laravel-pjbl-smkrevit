@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\PelangganController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,5 +66,6 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
         Route::resource('orderdetail', OrderDetailController::class);
         Route::get('select',[MenuController::class,'select']);
         Route::post('postmenu/{id}',[MenuController::class,'update']);
+        Route::resource('/pelanggan', PelangganController::class);
     });
 });
